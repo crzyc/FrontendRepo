@@ -4,14 +4,28 @@ import React from 'react';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+	  isShow: false,
     };
+	this.createText = this.createText.bind(this);
+    this.condrender = this.condrender.bind(this);
   }
+
+createText(){
+	this.setState({isShow: !this.state.isShow});
+}
+
+condrender() {
+   return (
+    <p>THIS TEXT</p>
+   ); 
+ }
+
 
   componentDidMount() {
     const publicServerUrl = 'http://ec2-18-222-100-185.us-east-2.compute.amazonaws.com';
@@ -53,6 +67,10 @@ class App extends React.Component {
 	<div class="background">
         My favorite Images
         <div class="horizontalarrange">
+			<div className="App">
+				<button onClick={this.createText}>Click</button>
+				{this.state.isShow ? this.condrender() : null}
+			</div>
 			<div class="outlineBox">
 				<p class="title">Sample Text</p>
 				{items.map(item => (
