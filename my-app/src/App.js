@@ -74,9 +74,10 @@ condrender() {
       return (
 	<div class="background">
         My favorite Images
+		<button onClick={this.createText}>Click</button>
+		{/*too lazy to move this properly for now*/}
         <div class="horizontalarrange">
-			<div className="App">
-				<button onClick={this.createText}>Click</button>
+			<div className="App">	
 				{this.state.isShow ? this.condrender() : null}
 			</div>
 		</div>
