@@ -21,8 +21,16 @@ createText(){
 }
 
 condrender() {
+   const items = this.state.items;
    return (
-    <p>THIS TEXT</p>
+	<div class="outlineBox">
+		<p class="title">Sample Text1</p>
+			{items.map(item => (
+				<li key={item}>
+					<img src={item} width="200" height="400" />
+				</li>
+			))}
+	</div>
    ); 
  }
 
@@ -70,22 +78,6 @@ condrender() {
 			<div className="App">
 				<button onClick={this.createText}>Click</button>
 				{this.state.isShow ? this.condrender() : null}
-			</div>
-			<div class="outlineBox">
-				<p class="title">Sample Text</p>
-				{items.map(item => (
-					<li key={item}>
-					<img src={item} width="200" height="400" />
-					</li>
-				))}
-			</div>
-			<div class="outlineBox">
-				<p class="title">Sample Text</p>
-				{items.map(item => (
-					<li key={item}>
-					<img src={item} width="200" height="400" />
-					</li>
-				))}
 			</div>
 		</div>
     </div>
